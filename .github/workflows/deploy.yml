@@ -15,7 +15,7 @@ permissions:
 jobs:
   build:
     # Only run this job if the pull request was merged
-    if: ${{ github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'dev' }} 
+    # if: ${{ github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'dev' }} 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -35,7 +35,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site # The path to the folder containing your built files
+          path: site
 
   deploy:
     environment:
