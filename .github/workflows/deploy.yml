@@ -20,11 +20,14 @@ jobs:
         with:
           dotnet-version: '9.0.x'
 
+      - name: Install .NET WASM Tools
+        run: dotnet workload install wasm-tools
+
       - name: Restore dependencies
         run: dotnet restore PersonalWebsite.sln
 
       - name: Publish .NET project
-        run: dotnet publish -c Release -o release
+        run: dotnet publish PersonalWebsite.sln -c:Release -o:release -p:GHPages=true
 
   deploy:
     environment:
@@ -34,6 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v4
         with: 
-          folder: release/wwwroot
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: release/wwwroot
+          force_orphan: true
