@@ -24,10 +24,13 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.x' #  Specify your .NET version
+          dotnet-version: '9.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore PersonalWebsite.sln # Or your project file path
+        run: dotnet restore PersonalWebsite.sln
+
+      - name: Publish .NET project
+        run: dotnet publish -c Release -o site
 
       - name: Build project
         run: dotnet build PersonalWebsite.sln --configuration Release --output site # Or adjust as needed
@@ -38,12 +41,13 @@ jobs:
           path: site
 
   deploy:
+    needs: build # Ensures the build job completes before deploying
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build # Ensures the build job completes before deploying
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+    
