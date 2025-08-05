@@ -29,13 +29,6 @@ jobs:
       - name: Publish .NET project
         run: dotnet publish PersonalWebsite.sln -c:Release -o:release -p:GHPages=true
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with: 
