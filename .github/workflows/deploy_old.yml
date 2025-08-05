@@ -1,4 +1,4 @@
-name: Build and Deploy .NET to GitHub Pages
+name: (v1) Build and Deploy .NET to GitHub Pages
 
 on:
   push:
