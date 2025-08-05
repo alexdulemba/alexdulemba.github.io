@@ -1,4 +1,4 @@
-name: Build and Deploy Blazor WASM App to Github Pages
+name: (v2) Build and Deploy .NET to GitHub Pages
 
 on: 
   workflow_dispatch:
