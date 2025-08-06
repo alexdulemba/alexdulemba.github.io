@@ -1,4 +1,6 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
+﻿@using WebApp.Shared
+
+<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
         <FocusOnNavigate RouteData="@routeData" Selector="h1"/>
@@ -12,7 +14,6 @@
 </Router>
 
 @code {
-    internal const string HomePage = "/";
-    internal const string ProjectsPage = "/projects";
-    internal const string AboutMePage = "about-me";
+    internal const string MainPage = "/";
+    internal const string ArticleListings = "/articles";
 }
