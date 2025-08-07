@@ -1,0 +1,123 @@
+﻿.main-page {
+  padding: var(--padding);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: clip;
+}
+.main-page > nav {
+  height: 100%;
+  width: 20%;
+  border-left: 2px solid var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-inline-start: var(--padding);
+}
+.main-page > nav > a {
+  color: var(--secondary-text);
+  font-size: 20px;
+  height: 44px;
+  transition: 0.3s ease all;
+}
+.main-page > nav > a.current {
+  font-size: 32px;
+  color: var(--primary-text);
+}
+.main-page > #main-scrolling-content {
+  height: 100%;
+  width: 80%;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+}
+.main-page > #main-scrolling-content::-webkit-scrollbar {
+  display: none;
+}
+.main-page > #main-scrolling-content > section {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  width: 100%;
+  height: 100%;
+}
+.main-page > #main-scrolling-content > section.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: "name icons" "job icons";
+}
+.main-page > #main-scrolling-content > section.home > .name {
+  grid-area: name;
+  align-self: flex-end;
+  justify-self: flex-start;
+  line-height: 108%;
+  margin-block-end: 16px;
+}
+.main-page > #main-scrolling-content > section.home > .job {
+  grid-area: job;
+  align-self: flex-start;
+  justify-self: flex-start;
+  margin-block-start: 16px;
+}
+.main-page > #main-scrolling-content > section.home > .programming-icons {
+  grid-area: icons;
+  position: relative;
+}
+.main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .icon.net {
+  width: 320px;
+  height: 320px;
+}
+.main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .icon.css {
+  width: 280px;
+  height: 280px;
+}
+.main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .icon.python {
+  width: 240px;
+  height: 240px;
+}
+.main-page > #main-scrolling-content > section.projects {
+  display: flex;
+}
+.main-page > #main-scrolling-content > section.projects > .cards-container {
+  width: 100%;
+  display: flex;
+  gap: calc(var(--padding) * 2);
+  scroll-snap-type: x mandatory;
+}
+.main-page > #main-scrolling-content > section.projects > .cards-container > ::deep .project-card {
+  max-width: 400px;
+  max-height: 400px;
+}
+.main-page > #main-scrolling-content > section.projects > .projects-placeholder {
+  margin: auto;
+  font-size: 48px;
+  color: var(--primary-text);
+}
+.main-page > #main-scrolling-content > section.about-me {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12%;
+}
+.main-page > #main-scrolling-content > section.about-me > ::deep .my-info {
+  height: 88dvh;
+  max-height: 640px;
+  width: 44%;
+}
+.main-page > #main-scrolling-content > section.about-me > ::deep .my-info > p {
+  font-size: 24px;
+  margin-block-end: 16px;
+}
+.main-page > #main-scrolling-content > section.about-me > ::deep .contact-me {
+  gap: calc(var(--padding) * 2);
+  align-items: center;
+}
+.main-page > #main-scrolling-content > section.about-me > ::deep .contact-me > h2 {
+  font-size: 48px;
+}
+.main-page > #main-scrolling-content > section.about-me > ::deep .contact-me > a {
+  border-radius: var(--border-radius);
+  background-color: var(--bg-light);
+  padding: var(--padding);
+}

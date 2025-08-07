@@ -1,0 +1,26 @@
+﻿.main-layout {
+  height: 100%;
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.main-layout > header {
+  height: 40px;
+  display: flex;
+  gap: 8px;
+}
+.main-layout > header > a {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--primary-text);
+}
+.main-layout > main {
+  width: 100%;
+  max-height: calc(100dvh - 40px - var(--padding) * 2);
+  flex-grow: 1;
+}

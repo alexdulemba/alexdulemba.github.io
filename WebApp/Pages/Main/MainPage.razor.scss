@@ -1,0 +1,150 @@
+.main-page {
+    padding: var(--padding);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: clip;
+
+    > nav {
+        height: 100%;
+        width: 20%;
+        border-left: 2px solid var(--bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-inline-start: var(--padding);
+
+        > a {
+            color: var(--secondary-text);
+            font-size: 20px;
+            height: 44px;
+            transition: 0.3s ease all;
+
+            &.current {
+                font-size: 32px;
+                color: var(--primary-text);
+            }
+        }
+    }
+
+    > #main-scrolling-content {
+        height: 100%;
+        width: 80%;
+        overflow: scroll;
+        scroll-snap-type: y mandatory;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        > section {
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            width: 100%;
+            height: 100%;
+
+            &.home {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-areas:
+                    "name icons" "job icons";
+
+                > .name {
+                    grid-area: name;
+                    align-self: flex-end;
+                    justify-self: flex-start;
+                    line-height: 108%;
+                    margin-block-end: 16px;
+                }
+
+                > .job {
+                    grid-area: job;
+                    align-self: flex-start;
+                    justify-self: flex-start;
+                    margin-block-start: 16px;
+                }
+
+                > .programming-icons {
+                    grid-area: icons;
+                    position: relative;
+
+                    > ::deep .icon.net {
+                        width: 320px;
+                        height: 320px;
+                    }
+
+                    > ::deep .icon.css {
+                        width: 280px;
+                        height: 280px;
+                    }
+
+                    > ::deep .icon.python {
+                        width: 240px;
+                        height: 240px;
+                    }
+                }
+            }
+
+            &.projects {
+                display: flex;
+
+                > h2 {
+                }
+
+                > .cards-container {
+                    width: 100%;
+                    display: flex;
+                    gap: calc(var(--padding) * 2);
+                    scroll-snap-type: x mandatory;
+
+                    > ::deep .project-card {
+                        max-width: 400px;
+                        max-height: 400px;
+                    }
+                }
+
+                > .projects-placeholder {
+                    margin: auto;
+                    font-size: 48px;
+                    color: var(--primary-text);
+                }
+            }
+
+            &.about-me {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12%;
+
+                > ::deep .my-info {
+                    height: 88dvh;
+                    max-height: 640px;
+                    width: 44%;
+
+                    > p {
+                        font-size: 24px;
+                        margin-block-end: 16px;
+                    }
+                }
+
+                > ::deep .contact-me {
+                    gap: calc(var(--padding) * 2);
+                    align-items: center;
+
+                    > h2 {
+                        font-size: 48px;
+                    }
+
+                    > a {
+                        border-radius: var(--border-radius);
+                        background-color: var(--bg-light);
+                        padding: var(--padding);
+                    }
+                }
+            }
+        }
+    }
+}
