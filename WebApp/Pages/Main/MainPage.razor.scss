@@ -50,7 +50,10 @@
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: repeat(2, 1fr);
                 grid-template-areas:
-                    "name icons" "job icons";
+                    "name icons" 
+                    "job icons";
+                position: relative;
+                --scroll-hint-left-offset: calc(50% - 36px - 12dvw);
 
                 > .name {
                     grid-area: name;
@@ -69,21 +72,50 @@
 
                 > .programming-icons {
                     grid-area: icons;
-                    position: relative;
+                    display: grid;
+                    grid-template-rows: 1fr 1fr;
+                    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+                    grid-template-areas:
+                        "net net python python"
+                        ". css css .";
 
-                    > ::deep .icon.net {
+                    > ::deep .net {
+                        grid-area: net;
+                        place-self: flex-end;
                         width: 320px;
                         height: 320px;
+                        margin-block-end: 8px;
                     }
 
-                    > ::deep .icon.css {
+                    > ::deep .css {
+                        grid-area: css;
+                        justify-self: center;
                         width: 280px;
                         height: 280px;
                     }
 
-                    > ::deep .icon.python {
+                    > ::deep .python {
+                        grid-area: python;
+                        place-self: flex-end flex-start;
                         width: 240px;
                         height: 240px;
+                    }
+                }
+
+                > .scroll-hint {
+                    position: absolute;
+                    width: 76px;
+                    display: grid;
+                    place-items: center;
+                    color: var(--secondary-text);
+                    bottom: 16px;
+                    left: var(--scroll-hint-left-offset);
+                    font-size: 14px;
+
+                    > ::deep .icon {
+                        margin-block-start: 4px;
+                        width: 28px;
+                        height: 28px;
                     }
                 }
             }
@@ -141,7 +173,108 @@
                     > a {
                         border-radius: var(--border-radius);
                         background-color: var(--bg-light);
-                        padding: var(--padding);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1380px) {
+    .main-page {
+        padding: 0;
+
+        > nav {
+            display: none;
+        }
+
+        > #main-scrolling-content {
+            width: 100%;
+
+            > section {
+                &.home {
+                    grid-template-rows: calc(32% - 24px) auto 1fr;
+                    grid-template-columns: 1fr;
+                    grid-template-areas:
+                        "name" 
+                        "job" 
+                        "icons";
+                    --scroll-hint-left-offset: calc(50% - 36px);
+
+                    > .name {
+                        padding-inline: calc(var(--padding) * 2);
+                        font-size: 72px;
+                        text-align: center;
+                        word-wrap: anywhere;
+                        justify-self: center;
+                    }
+
+                    > .job {
+                        font-size: 28px;
+                        text-align: center;
+                        place-self: center;
+                    }
+
+                    > .programming-icons {
+                        > ::deep .net {
+                            width: 200px;
+                            height: 200px;
+                        }
+
+                        > ::deep .css {
+                            width: 160px;
+                            height: 160px;
+                        }
+
+                        > ::deep .python {
+                            width: 120px;
+                            height: 120px;
+                        }
+                    }
+
+                    > .scroll-hint {
+                        bottom: 48px;
+                    }
+                }
+
+                &.projects {
+                    > .projects-placeholder {
+                        font-size: 32px;
+                        padding-inline: calc(var(--padding) * 2);
+                        text-align: center;
+                    }
+                }
+
+                &.about-me {
+                    flex-direction: column;
+                    padding: calc(var(--padding) * 3) calc(var(--padding) * 2);
+                    justify-content: space-evenly;
+                    gap: 16px;
+
+                    > ::deep .my-info {
+                        height: auto;
+                        width: 88%;
+                        align-items: center;
+
+                        > p {
+                            font-size: 20px;
+                            text-align: center;
+                        }
+
+                        > button {
+                            margin-block-start: 8px;
+
+                            > .icon {
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+                    }
+
+                    > ::deep .contact-me {
+                        > h2 {
+                            font-size: 32px;
+                        }
                     }
                 }
             }

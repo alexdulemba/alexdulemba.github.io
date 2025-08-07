@@ -43,6 +43,14 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--bg-dark);
+    --diameter: max(0.2dvw, 2px);
+    --grid-box-size: max(2dvw, 8px);
+    transition: 0.1s ease all;
+    background: radial-gradient(
+            circle at var(--diameter) var(--diameter), 
+            hsl(0, 0%, 12%) calc(var(--diameter) - 1px),
+            var(--bg-dark) var(--diameter)) 
+        0 0 / var(--grid-box-size) var(--grid-box-size);
 
     #app {
         width: 100%;
@@ -89,6 +97,10 @@ span {
 a {
     text-decoration: none;
     color: var(--primary-text);
+
+    &.button-like {
+        padding: 8px 12px;
+    }
 }
 
 button {

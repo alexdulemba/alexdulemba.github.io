@@ -21,6 +21,10 @@
                 <PythonIcon />
                 <CssIcon />
             </div>
+            <footer class="scroll-hint">
+                <span>Scroll Down</span>
+                <DownArrowIcon />
+            </footer>
         </section>
         <section class="projects">
             @if (Features.ShowProjects)
@@ -50,12 +54,12 @@
                     primarily in the <span class="net">.NET</span> ecosystem but also with <span class="python">Python</span>. 
                 </p>
                 <p>
-                    I have worked on web and desktop projects using <span class="net">Blazor</span> and React, 
-                    helped design/build micro-service and monolith apps, 
-                    and gathered/implemented customer requirements.
+                    I have worked on web and desktop projects using <span class="net">Blazor</span> and <span style="color: #61DAFB">React</span>, 
+                    helped design & build micro-service & monolith apps, 
+                    and implemented customer requirements.
                 </p>
                 <p>
-                    I am passionate about building great software 
+                    I am passionate about building <span style="color: forestgreen">great software</span>
                     that gives a meaningful impact to people who use it.
                 </p>
                 <button @onclick="@HandleResumeDownloadAsync">
@@ -65,7 +69,7 @@
             </Card>
             <Card Class="contact-me">
                 <h2>Contact Me</h2>
-                <a href="mailto:olekdulemba@gmail.com">Send me an email 📧</a>
+                <a class="button-like" href="mailto:olekdulemba@gmail.com">Send me an email 📧</a>
             </Card>
         </section>
     </div>

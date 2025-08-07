@@ -3,18 +3,25 @@
 
 <div class="main-layout">
     <header>
-        <a href="https://www.linkedin.com/in/alexander-dulemba-729810227/" target="_blank">
-            <LinkedinIcon />
-        </a>
-        <a href="https://github.com/alexdulemba" target="_blank">
-            <GithubIcon />
-        </a>
-        @if (Features.ShowYoutubeLink)
-        {
-            <a href="#" target="_blank">
-                <YoutubeIcon />
-            </a>            
-        }
+        <nav class="mobile-page-navigation">
+            <a class="home-link current">&lt;Home /&gt;</a>
+            <a class="projects-link">&lt;Projects /&gt;</a>
+            <a class="about-me-link">&lt;AboutMe /&gt;</a>
+        </nav>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/alexander-dulemba-729810227/" target="_blank">
+                <LinkedinIcon />
+            </a>
+            <a href="https://github.com/alexdulemba" target="_blank">
+                <GithubIcon />
+            </a>
+            @if (Features.ShowYoutubeLink)
+            {
+                <a href="#" target="_blank">
+                    <YoutubeIcon />
+                </a>            
+            }
+        </div>
     </header>
     <main>
         @Body
