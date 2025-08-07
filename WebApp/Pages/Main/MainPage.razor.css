@@ -46,6 +46,8 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(2, 1fr);
   grid-template-areas: "name icons" "job icons";
+  position: relative;
+  --scroll-hint-left-offset: calc(50% - 36px - 12dvw);
 }
 .main-page > #main-scrolling-content > section.home > .name {
   grid-area: name;
@@ -62,19 +64,44 @@
 }
 .main-page > #main-scrolling-content > section.home > .programming-icons {
   grid-area: icons;
-  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  grid-template-areas: "net net python python" ". css css .";
 }
-.main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .icon.net {
+.main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .net {
+  grid-area: net;
+  place-self: flex-end;
   width: 320px;
   height: 320px;
+  margin-block-end: 8px;
 }
-.main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .icon.css {
+.main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .css {
+  grid-area: css;
+  justify-self: center;
   width: 280px;
   height: 280px;
 }
-.main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .icon.python {
+.main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .python {
+  grid-area: python;
+  place-self: flex-end flex-start;
   width: 240px;
   height: 240px;
+}
+.main-page > #main-scrolling-content > section.home > .scroll-hint {
+  position: absolute;
+  width: 76px;
+  display: grid;
+  place-items: center;
+  color: var(--secondary-text);
+  bottom: 16px;
+  left: var(--scroll-hint-left-offset);
+  font-size: 14px;
+}
+.main-page > #main-scrolling-content > section.home > .scroll-hint > ::deep .icon {
+  margin-block-start: 4px;
+  width: 28px;
+  height: 28px;
 }
 .main-page > #main-scrolling-content > section.projects {
   display: flex;
@@ -119,5 +146,79 @@
 .main-page > #main-scrolling-content > section.about-me > ::deep .contact-me > a {
   border-radius: var(--border-radius);
   background-color: var(--bg-light);
-  padding: var(--padding);
+}
+
+@media (max-width: 1380px) {
+  .main-page {
+    padding: 0;
+  }
+  .main-page > nav {
+    display: none;
+  }
+  .main-page > #main-scrolling-content {
+    width: 100%;
+  }
+  .main-page > #main-scrolling-content > section.home {
+    grid-template-rows: calc(32% - 24px) auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "name" "job" "icons";
+    --scroll-hint-left-offset: calc(50% - 36px);
+  }
+  .main-page > #main-scrolling-content > section.home > .name {
+    padding-inline: calc(var(--padding) * 2);
+    font-size: 72px;
+    text-align: center;
+    word-wrap: anywhere;
+    justify-self: center;
+  }
+  .main-page > #main-scrolling-content > section.home > .job {
+    font-size: 28px;
+    text-align: center;
+    place-self: center;
+  }
+  .main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .net {
+    width: 200px;
+    height: 200px;
+  }
+  .main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .css {
+    width: 160px;
+    height: 160px;
+  }
+  .main-page > #main-scrolling-content > section.home > .programming-icons > ::deep .python {
+    width: 120px;
+    height: 120px;
+  }
+  .main-page > #main-scrolling-content > section.home > .scroll-hint {
+    bottom: 48px;
+  }
+  .main-page > #main-scrolling-content > section.projects > .projects-placeholder {
+    font-size: 32px;
+    padding-inline: calc(var(--padding) * 2);
+    text-align: center;
+  }
+  .main-page > #main-scrolling-content > section.about-me {
+    flex-direction: column;
+    padding: calc(var(--padding) * 3) calc(var(--padding) * 2);
+    justify-content: space-evenly;
+    gap: 16px;
+  }
+  .main-page > #main-scrolling-content > section.about-me > ::deep .my-info {
+    height: auto;
+    width: 88%;
+    align-items: center;
+  }
+  .main-page > #main-scrolling-content > section.about-me > ::deep .my-info > p {
+    font-size: 20px;
+    text-align: center;
+  }
+  .main-page > #main-scrolling-content > section.about-me > ::deep .my-info > button {
+    margin-block-start: 8px;
+  }
+  .main-page > #main-scrolling-content > section.about-me > ::deep .my-info > button > .icon {
+    width: 24px;
+    height: 24px;
+  }
+  .main-page > #main-scrolling-content > section.about-me > ::deep .contact-me > h2 {
+    font-size: 32px;
+  }
 }
