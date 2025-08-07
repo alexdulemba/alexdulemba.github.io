@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System.Runtime.InteropServices.JavaScript;
 using System.Runtime.Versioning;
 
@@ -29,7 +30,7 @@ public partial class MainPage : IDisposable
             try
             {
                 _ = await JSHost.ImportAsync(ModuleName, JsFilePath, token);
-                return new JS();
+                return new JS(logger);
             }
             catch (Exception ex)
             {
@@ -38,15 +39,30 @@ public partial class MainPage : IDisposable
             }
         }
 
-        [JSImport(functionName: "setupScrollingAnimation", ModuleName)]
+        [JSImport(functionName: "setup", ModuleName)]
         private static partial void Setup();
 
-        [JSImport(functionName: "teardownScrollingAnimation", ModuleName)]
+        [JSImport(functionName: "dispose", ModuleName)]
         private static partial void Dispose();
 
-        internal sealed class JS : IDisposable
-        {
+        internal sealed class JS(ILogger<MainPage> logger) : IDisposable
+        {   
+            private const string DownloadFileFromStreamFunction = "downloadFileFromStream";
+
             internal void Setup() => SetupJsModule.Setup();
+
+            internal async Task DownloadResumeAsync(IJSRuntime jsRuntime, string resourceName, string fileName)
+            {
+                using var manifestStream = typeof(MainPage).Assembly.GetManifestResourceStream(resourceName);
+                if (manifestStream is null)
+                {
+                    logger.LogError("Resource '{ResourceName}' not found in assembly.", resourceName);
+                    return;
+                }
+
+                using var dotnetStream = new DotNetStreamReference(manifestStream);
+                await jsRuntime.InvokeVoidAsync(DownloadFileFromStreamFunction, fileName, dotnetStream);
+            }
 
             public void Dispose() => SetupJsModule.Dispose();
         }

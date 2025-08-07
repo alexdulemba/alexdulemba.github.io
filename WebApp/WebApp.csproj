@@ -1,9 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <InvariantGlobalization>true</InvariantGlobalization>
+        <InvariantTimezone>true</InvariantTimezone>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.2" />
@@ -15,5 +17,7 @@
         <Content Update="wwwroot\index.html">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
+        <EmbeddedResource Include="Resources\AlexanderDulemba_Resume.pdf" />
+        <None Remove="Resources\AlexanderDulemba_Resume.pdf" />
     </ItemGroup>
 </Project>

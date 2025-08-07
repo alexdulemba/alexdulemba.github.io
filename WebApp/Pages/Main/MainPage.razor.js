@@ -1,4 +1,4 @@
-﻿export function setupScrollingAnimation() {
+﻿export function setup() {
     const scrollContainer = document.getElementById("main-scrolling-content");
     scrollContainer.addEventListener("scroll", handleScroll);
     window.scrollContainers = new ScrollContainerData(
@@ -7,12 +7,14 @@
         document.querySelector(".projects-link"),
         document.querySelector(".about-me-link")
     );
+    window.downloadFileFromStream = downloadFileFromStream;
 }
 
-export function teardownScrollingAnimation() {
+export function dispose() {
     const scrollContainer = document.getElementById("main-scrolling-content");
     scrollContainer.removeEventListener("scroll", handleScroll);
     window.ScrollContainers = {};
+    window.downloadFileFromStream = null;
 }
 
 class ScrollContainerData {
@@ -77,4 +79,17 @@ function handleScroll(event) {
  */
 function isBetween(min, max, num) {
     return num >= min && num <= max;
+}
+
+async function downloadFileFromStream(fileName, contentStreamRef) {
+    /** @type {ArrayBuffer} */
+    const arrayBuffer = await contentStreamRef.arrayBuffer();
+    const blob = new Blob([arrayBuffer]);
+    const url = URL.createObjectURL(blob);
+    const anchorElement = document.createElement('a');
+    anchorElement.href = url;
+    anchorElement.download = fileName ?? '';
+    anchorElement.click();
+    anchorElement.remove();
+    URL.revokeObjectURL(url);
 }

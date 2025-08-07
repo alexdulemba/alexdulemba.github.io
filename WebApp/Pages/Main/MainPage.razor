@@ -1,6 +1,7 @@
 @using Microsoft.AspNetCore.Components.Web
-@using System.Runtime.InteropServices.JavaScript
+@using Microsoft.JSInterop
 @using WebApp.Shared.Icons
+
 @attribute [Route(App.MainPage)]
 
 <PageTitle>Alexander Dulemba</PageTitle>
@@ -71,7 +72,11 @@
 </div>
 
 @code {
+    [Inject] private IJSRuntime JsRuntime { get; set; } = default!;
+
     private string CurrentProjectTitle { get; set; } = "Project Title";
+    private const string ResourceName = "WebApp.Resources.AlexanderDulemba_Resume.pdf";
+    private const string DefaultFileName = "AlexanderDulemba_Resume.pdf";
 
     protected override async Task OnInitializedAsync()
     {
@@ -80,6 +85,8 @@
 
     private async Task HandleResumeDownloadAsync()
     {
-        
+        if (Module is null) return;
+
+        await Module.DownloadResumeAsync(JsRuntime, ResourceName, DefaultFileName);
     }
 }
