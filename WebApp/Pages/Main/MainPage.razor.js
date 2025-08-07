@@ -13,7 +13,7 @@
 export function dispose() {
     const scrollContainer = document.getElementById("main-scrolling-content");
     scrollContainer.removeEventListener("scroll", handleScroll);
-    window.ScrollContainers = {};
+    window.scrollContainers = null;
     window.downloadFileFromStream = null;
 }
 
