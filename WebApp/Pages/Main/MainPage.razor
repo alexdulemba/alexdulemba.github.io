@@ -1,13 +1,17 @@
+@using Microsoft.AspNetCore.Components.Web
+@using System.Runtime.InteropServices.JavaScript
 @using WebApp.Shared.Icons
 @attribute [Route(App.MainPage)]
 
+<PageTitle>Alexander Dulemba</PageTitle>
+
 <div class="main-page">
     <nav>
-        <a class="current">&lt;Home /&gt;</a>
-        <a class="">&lt;Projects /&gt;</a>
-        <a class="">&lt;AboutMe /&gt;</a>
+        <a class="home-link current">&lt;Home /&gt;</a>
+        <a class="projects-link">&lt;Projects /&gt;</a>
+        <a class="about-me-link">&lt;AboutMe /&gt;</a>
     </nav>
-    <div class="scrolling-content">
+    <div id="main-scrolling-content">
         <section class="home">
             <h1 class="name">Alexander Dulemba</h1>
             <h3 class="job">Full-stack developer</h3>
@@ -23,21 +27,27 @@
                 <Card Class="project-card">
                 
                 </Card>
+                <Card Class="project-card">
+                    
+                </Card>
+                <Card Class="project-card">
+
+                </Card>
             </div>
         </section>
         <section class="about-me">
             <Card Class="my-info">
                 <p>
-                    I’m a full-stack software developer with 4+ years of experience, 
+                    I am a full-stack software developer with 4+ years of experience, 
                     primarily in the <span class="net">.NET</span> ecosystem but also with <span class="python">Python</span>. 
                 </p>
                 <p>
-                    I’ve worked on web and desktop projects using <span class="net">Blazor</span> and React, 
+                    I have worked on web and desktop projects using <span class="net">Blazor</span> and React, 
                     helped design/build micro-service and monolith apps, 
                     and gathered/implemented customer requirements.
                 </p>
                 <p>
-                    I’m passionate about building great software 
+                    I am passionate about building great software 
                     that gives a meaningful impact to people who use it.
                 </p>
                 <button @onclick="@HandleResumeDownloadAsync">
@@ -47,7 +57,7 @@
             </Card>
             <Card Class="contact-me">
                 <h2>Contact Me</h2>
-                <a href="mailto:olekdulemba@gmail.com">Click here to send me an email 📧</a>
+                <a href="mailto:olekdulemba@gmail.com">Send me an email 📧</a>
             </Card>
         </section>
     </div>
@@ -55,6 +65,11 @@
 
 @code {
     private string CurrentProjectTitle { get; set; } = "Project Title";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await SetupJsAnimationsAsync();
+    }
 
     private async Task HandleResumeDownloadAsync()
     {
