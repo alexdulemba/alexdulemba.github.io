@@ -151,35 +151,28 @@ h1:focus {
     }
 }
 
-.loading-progress {
-    position: relative;
-    display: block;
-    width: 8rem;
-    height: 8rem;
-    margin: 20vh auto 1rem auto;
+.blazor-loader {
+    --size: 32px;
+    --_d: calc(0.353*var(--size));
+    width: calc(var(--size) + var(--_d));
+    aspect-ratio: 1;
+    clip-path: polygon(
+        var(--_d) 0,
+        100% 0,
+        100% calc(100% - var(--_d)),
+        calc(100% - var(--_d)) 100%,
+        0 100%,
+        0 var(--_d));
+    background: conic-gradient(
+        from -90deg at var(--size) var(--_d), 
+        var(--net-color-dark) 135deg,
+        var(--python-color) 0 270deg,
+        var(--css-color) 0);
+    animation: bounce 1s infinite cubic-bezier(0.5, 300, 0.5, -300);
 
-    > circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
-
-        &:last-child {
-            stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
+    @keyframes bounce {
+        50%, 100% {
+            transform: translateY(0.1px);
         }
-    }
-}
-
-.loading-progress-text {
-    position: absolute;
-    text-align: center;
-    font-weight: bold;
-    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
-
-    &:after {
-        content: var(--blazor-load-percentage-text, "Loading");
     }
 }

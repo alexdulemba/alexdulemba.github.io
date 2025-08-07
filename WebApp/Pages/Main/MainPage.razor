@@ -22,18 +22,25 @@
             </div>
         </section>
         <section class="projects">
-            <h2>@CurrentProjectTitle</h2>
-            <div class="cards-container">
-                <Card Class="project-card">
+            @if (Features.ShowProjects)
+            {
+                <h2>@CurrentProjectTitle</h2>
+                <div class="cards-container">
+                    <Card Class="project-card">
                 
-                </Card>
-                <Card Class="project-card">
+                    </Card>
+                    <Card Class="project-card">
                     
-                </Card>
-                <Card Class="project-card">
+                    </Card>
+                    <Card Class="project-card">
 
-                </Card>
-            </div>
+                    </Card>
+                </div>
+            }
+            else
+            {
+                <p class="projects-placeholder">Showcase projects will be added soon. Stay tuned!</p>
+            }
         </section>
         <section class="about-me">
             <Card Class="my-info">

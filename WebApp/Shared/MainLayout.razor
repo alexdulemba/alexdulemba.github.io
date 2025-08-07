@@ -3,15 +3,18 @@
 
 <div class="main-layout">
     <header>
-        <a href="#">
+        <a href="https://www.linkedin.com/in/alexander-dulemba-729810227/" target="_blank">
             <LinkedinIcon />
         </a>
-        <a href="#">
+        <a href="https://github.com/alexdulemba" target="_blank">
             <GithubIcon />
         </a>
-        <a href="#">
-            <YoutubeIcon />
-        </a>
+        @if (Features.ShowYoutubeLink)
+        {
+            <a href="#" target="_blank">
+                <YoutubeIcon />
+            </a>            
+        }
     </header>
     <main>
         @Body

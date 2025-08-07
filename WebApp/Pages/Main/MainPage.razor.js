@@ -46,7 +46,6 @@ function handleScroll(event) {
     let data = window.scrollContainers;
     if (data === null || !(data instanceof ScrollContainerData) || data.container === null) return;
 
-    console.log("animation");
     const mainScrollContainer = data.container;
     const scrollableHeight = mainScrollContainer.scrollHeight - mainScrollContainer.clientHeight;
     if (scrollableHeight > 0) {

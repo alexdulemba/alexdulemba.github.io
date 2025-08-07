@@ -76,6 +76,9 @@
   width: 240px;
   height: 240px;
 }
+.main-page > #main-scrolling-content > section.projects {
+  display: flex;
+}
 .main-page > #main-scrolling-content > section.projects > .cards-container {
   width: 100%;
   display: flex;
@@ -85,6 +88,11 @@
 .main-page > #main-scrolling-content > section.projects > .cards-container > ::deep .project-card {
   max-width: 400px;
   max-height: 400px;
+}
+.main-page > #main-scrolling-content > section.projects > .projects-placeholder {
+  margin: auto;
+  font-size: 48px;
+  color: var(--primary-text);
 }
 .main-page > #main-scrolling-content > section.about-me {
   display: flex;
