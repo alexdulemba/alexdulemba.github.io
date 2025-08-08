@@ -94,7 +94,7 @@
   width: 76px;
   display: grid;
   place-items: center;
-  color: var(--secondary-text);
+  color: var(--tertiary-text);
   bottom: 16px;
   left: var(--scroll-hint-left-offset);
   font-size: 14px;
@@ -132,19 +132,26 @@
   height: 88dvh;
   max-height: 640px;
   width: 44%;
-  padding: var(--padding);
+  padding: calc(var(--padding) * 2);
 }
 .main-page > #main-scrolling-content > section.about-me > ::deep .my-info > p {
-  font-size: 24px;
+  font-size: var(--medium-text);
   margin-block-end: 16px;
 }
+.main-page > #main-scrolling-content > section.about-me > ::deep .my-info > button {
+  font-size: var(--small-text);
+}
+.main-page > #main-scrolling-content > section.about-me > ::deep .my-info > button > .icon {
+  width: 24px;
+  height: 24px;
+}
 .main-page > #main-scrolling-content > section.about-me > ::deep .contact-me {
-  gap: calc(var(--padding) * 1.5);
+  gap: 32px;
   align-items: center;
-  padding: var(--padding);
+  padding: calc(var(--padding) * 2);
 }
 .main-page > #main-scrolling-content > section.about-me > ::deep .contact-me > h2 {
-  font-size: 48px;
+  font-size: var(--large-text);
 }
 .main-page > #main-scrolling-content > section.about-me > ::deep .contact-me > a {
   border-radius: var(--border-radius);
@@ -192,7 +199,7 @@
     height: 100px;
   }
   .main-page > #main-scrolling-content > section.home > .scroll-hint {
-    bottom: 48px;
+    bottom: 64px;
   }
   .main-page > #main-scrolling-content > section.projects > .projects-placeholder {
     font-size: var(--medium-text);
@@ -209,6 +216,7 @@
     flex-grow: 3;
     width: 88%;
     align-items: center;
+    padding: var(--padding);
   }
   .main-page > #main-scrolling-content > section.about-me > ::deep .my-info > p {
     font-size: var(--small-text);
@@ -224,7 +232,8 @@
   }
   .main-page > #main-scrolling-content > section.about-me > ::deep .contact-me {
     flex-grow: 1;
-    gap: var(--padding);
+    gap: 16px;
+    padding: var(--padding);
   }
   .main-page > #main-scrolling-content > section.about-me > ::deep .contact-me > h2 {
     font-size: var(--medium-text);

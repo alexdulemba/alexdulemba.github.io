@@ -108,7 +108,7 @@
                     width: 76px;
                     display: grid;
                     place-items: center;
-                    color: var(--secondary-text);
+                    color: var(--tertiary-text);
                     bottom: 16px;
                     left: var(--scroll-hint-left-offset);
                     font-size: 14px;
@@ -156,21 +156,30 @@
                     height: 88dvh;
                     max-height: 640px;
                     width: 44%;
-					padding: var(--padding);
+					padding: calc(var(--padding) * 2);
 
                     > p {
-                        font-size: 24px;
+                        font-size: var(--medium-text);
                         margin-block-end: 16px;
                     }
+
+					> button {
+						font-size: var(--small-text);
+
+						> .icon {
+							width: 24px;
+							height: 24px;
+						}
+					}
                 }
 
                 > ::deep .contact-me {
-                    gap: calc(var(--padding) * 1.5);
+                    gap: 32px;
                     align-items: center;
-					padding: var(--padding);
+					padding: calc(var(--padding) * 2);
 
                     > h2 {
-                        font-size: 48px;
+                        font-size: var(--large-text);
                     }
 
                     > a {
@@ -236,7 +245,7 @@
                     }
 
                     > .scroll-hint {
-                        bottom: 48px;
+                        bottom: 64px;
                     }
                 }
 
@@ -258,6 +267,7 @@
 						flex-grow: 3;
                         width: 88%;
                         align-items: center;
+						padding: var(--padding);
 
                         > p {
                             font-size: var(--small-text);
@@ -277,7 +287,8 @@
 
                     > ::deep .contact-me {
 						flex-grow: 1;
-						gap: var(--padding);
+						gap: 16px;
+						padding: var(--padding);
 
                         > h2 {
                             font-size: var(--medium-text);
