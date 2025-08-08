@@ -20,6 +20,13 @@
     --python-color: oklch(0.575 0.15 267.537);
     --css-color: hsl(61, 55%, 51%);
 
+	--small-text: clamp(14px, 2.4vh, 24px);
+	--small-text: clamp(14px, 2.4dvh, 24px);
+	--medium-text: clamp(20px, 3.2vh, 32px);
+	--medium-text: clamp(20px, 3.2dvh, 32px);
+	--large-text: clamp(28px, 4vh, 44px);
+	--large-text: clamp(28px, 4dvh, 44px);
+
     .net {
         color: var(--net-color-light);
         font-weight: bold;
@@ -180,9 +187,9 @@ h1:focus {
         var(--net-color-dark) 135deg,
         var(--python-color) 0 270deg,
         var(--css-color) 0);
-    animation: bounce 1s infinite cubic-bezier(0.5, 300, 0.5, -300);
+    animation: bounce-anim 1s infinite cubic-bezier(0.5, 300, 0.5, -300);
 
-    @keyframes bounce {
+    @keyframes bounce-anim {
         50%, 100% {
             transform: translateY(0.1px);
         }

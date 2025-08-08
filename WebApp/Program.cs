@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using WebApp;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
-builder.RootComponents.Add<App>("#app");
-builder.RootComponents.Add<HeadOutlet>("head::after");
-
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.RootComponents.Add<App>(App.RootElement);
+builder.RootComponents.Add<HeadOutlet>(App.HeadElement);
 
 await builder.Build().RunAsync();
