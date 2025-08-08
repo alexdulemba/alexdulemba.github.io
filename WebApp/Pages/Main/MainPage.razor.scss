@@ -34,6 +34,7 @@
         width: 80%;
         overflow: scroll;
         scroll-snap-type: y mandatory;
+		scroll-behavior: smooth;
 
         &::-webkit-scrollbar {
             display: none;
@@ -107,7 +108,7 @@
                     width: 76px;
                     display: grid;
                     place-items: center;
-                    color: var(--secondary-text);
+                    color: var(--tertiary-text);
                     bottom: 16px;
                     left: var(--scroll-hint-left-offset);
                     font-size: 14px;
@@ -155,19 +156,30 @@
                     height: 88dvh;
                     max-height: 640px;
                     width: 44%;
+					padding: calc(var(--padding) * 2);
 
                     > p {
-                        font-size: 24px;
+                        font-size: var(--medium-text);
                         margin-block-end: 16px;
                     }
+
+					> button {
+						font-size: var(--small-text);
+
+						> .icon {
+							width: 24px;
+							height: 24px;
+						}
+					}
                 }
 
                 > ::deep .contact-me {
-                    gap: calc(var(--padding) * 2);
+                    gap: 32px;
                     align-items: center;
+					padding: calc(var(--padding) * 2);
 
                     > h2 {
-                        font-size: 48px;
+                        font-size: var(--large-text);
                     }
 
                     > a {
@@ -199,47 +211,47 @@
                         "name" 
                         "job" 
                         "icons";
-                    --scroll-hint-left-offset: calc(50% - 36px);
+                    --scroll-hint-left-offset: 12dvw;
 
                     > .name {
                         padding-inline: calc(var(--padding) * 2);
-                        font-size: 72px;
+                        font-size: 60px;
                         text-align: center;
                         word-wrap: anywhere;
                         justify-self: center;
                     }
 
                     > .job {
-                        font-size: 28px;
+                        font-size: var(--small-text);
                         text-align: center;
                         place-self: center;
                     }
 
                     > .programming-icons {
                         > ::deep .net {
-                            width: 200px;
-                            height: 200px;
+                            width: 180px;
+                            height: 180px;
                         }
 
                         > ::deep .css {
-                            width: 160px;
-                            height: 160px;
+                            width: 140px;
+                            height: 140px;
                         }
 
                         > ::deep .python {
-                            width: 120px;
-                            height: 120px;
+                            width: 100px;
+                            height: 100px;
                         }
                     }
 
                     > .scroll-hint {
-                        bottom: 48px;
+                        bottom: 64px;
                     }
                 }
 
                 &.projects {
                     > .projects-placeholder {
-                        font-size: 32px;
+                        font-size: var(--medium-text);
                         padding-inline: calc(var(--padding) * 2);
                         text-align: center;
                     }
@@ -247,34 +259,44 @@
 
                 &.about-me {
                     flex-direction: column;
-                    padding: calc(var(--padding) * 3) calc(var(--padding) * 2);
-                    justify-content: space-evenly;
-                    gap: 16px;
+                    padding: calc(var(--padding) * 2) var(--padding) calc(var(--padding) * 4) var(--padding);
+                    gap: 12px;
 
                     > ::deep .my-info {
                         height: auto;
+						flex-grow: 3;
                         width: 88%;
                         align-items: center;
+						padding: var(--padding);
 
                         > p {
-                            font-size: 20px;
+                            font-size: var(--small-text);
                             text-align: center;
                         }
 
                         > button {
                             margin-block-start: 8px;
+							font-size: var(--small-text);
 
                             > .icon {
-                                width: 24px;
-                                height: 24px;
+                                width: 20px;
+                                height: 20px;
                             }
                         }
                     }
 
                     > ::deep .contact-me {
+						flex-grow: 1;
+						gap: 16px;
+						padding: var(--padding);
+
                         > h2 {
-                            font-size: 32px;
+                            font-size: var(--medium-text);
                         }
+
+						> a {
+							font-size: var(--small-text);
+						}
                     }
                 }
             }
