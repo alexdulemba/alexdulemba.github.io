@@ -73,6 +73,78 @@
                     margin-block-start: 16px;
 					font-size: var(--large-text);
 					color: var(--secondary-text);
+
+					> .typewriter {
+						margin-inline-start: 4px;
+						
+						&::before {
+							content: "";
+							color: inherit;
+							animation: typewrite 10s linear infinite forwards;
+							font: inherit;
+						}
+
+						&::after {
+							display: inline-block;
+							content: "";
+							width: 12px;
+							border-bottom: 3px solid currentColor;
+							animation: cursor-blink 0.8s linear infinite;
+							font: inherit;
+						}
+
+						@keyframes typewrite {
+							0%, 100% {
+								content: "";
+							}
+
+							4%, 96% {
+								content: "d";
+							}
+
+							8%, 92% {
+								content: "de";
+							}
+
+							12%, 88% {
+								content: "dev";
+							}
+
+							16%, 84% {
+								content: "deve";
+							}
+
+							20%, 80% {
+								content: "devel";
+							}
+
+							24%, 76% {
+								content: "develo";
+							}
+
+							28%, 72% {
+								content: "develop";
+							}
+
+							32%, 68% {
+								content: "develope";
+							}
+
+							36%, 64% {
+								content: "developer";
+							}
+						}
+
+						@keyframes cursor-blink {
+							0%, 100% {
+								opacity: 0;
+							}
+
+							50% {
+								opacity: 1;
+							}
+						}
+					}
                 }
 
                 > .programming-icons {
