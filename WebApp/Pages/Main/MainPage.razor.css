@@ -4,11 +4,11 @@
   height: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   overflow: clip;
 }
 .main-page > nav {
-  height: 100%;
+  height: 92%;
   width: 20%;
   border-left: 2px solid var(--bg);
   display: flex;
@@ -17,13 +17,13 @@
   padding-inline-start: var(--padding);
 }
 .main-page > nav > a {
-  color: var(--secondary-text);
-  font-size: 20px;
-  height: 44px;
+  color: var(--bg-light);
+  font-size: var(--very-small-text);
+  height: 48px;
   transition: 0.3s ease all;
 }
 .main-page > nav > a.current {
-  font-size: 32px;
+  font-size: var(--medium-text);
   color: var(--primary-text);
 }
 .main-page > #main-scrolling-content {
@@ -56,12 +56,16 @@
   justify-self: flex-start;
   line-height: 108%;
   margin-block-end: 16px;
+  font-size: var(--ultra-large-text);
+  color: var(--primary-text);
 }
 .main-page > #main-scrolling-content > section.home > .job {
   grid-area: job;
   align-self: flex-start;
   justify-self: flex-start;
   margin-block-start: 16px;
+  font-size: var(--large-text);
+  color: var(--secondary-text);
 }
 .main-page > #main-scrolling-content > section.home > .programming-icons {
   grid-area: icons;
@@ -119,7 +123,7 @@
 }
 .main-page > #main-scrolling-content > section.projects > .projects-placeholder {
   margin: auto;
-  font-size: 48px;
+  font-size: var(--large-text);
   color: var(--primary-text);
 }
 .main-page > #main-scrolling-content > section.about-me {
@@ -156,6 +160,7 @@
 .main-page > #main-scrolling-content > section.about-me > ::deep .contact-me > a {
   border-radius: var(--border-radius);
   background-color: var(--bg-light);
+  font-size: var(--small-text);
 }
 
 @media (max-width: 1380px) {
@@ -176,13 +181,13 @@
   }
   .main-page > #main-scrolling-content > section.home > .name {
     padding-inline: calc(var(--padding) * 2);
-    font-size: 60px;
+    font-size: var(--very-large-text);
     text-align: center;
     word-wrap: anywhere;
     justify-self: center;
   }
   .main-page > #main-scrolling-content > section.home > .job {
-    font-size: var(--small-text);
+    font-size: var(--medium-text);
     text-align: center;
     place-self: center;
   }
@@ -209,7 +214,7 @@
   .main-page > #main-scrolling-content > section.about-me {
     flex-direction: column;
     padding: calc(var(--padding) * 2) var(--padding) calc(var(--padding) * 4) var(--padding);
-    gap: 12px;
+    gap: 24px;
   }
   .main-page > #main-scrolling-content > section.about-me > ::deep .my-info {
     height: auto;

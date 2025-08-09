@@ -58,7 +58,7 @@
             > .mobile-page-navigation {
                 padding-inline-start: var(--padding);
                 height: 100%;
-                max-width: 50%;
+                max-width: 52%;
                 display: flex;
                 flex-direction: column;
                 overflow: scroll;
@@ -72,7 +72,7 @@
                     flex-shrink: 0;
                     width: 100%;
                     height: 100%;
-                    font-size: 24px;
+                    font-size: var(--medium-text);
                     color: var(--primary-text);
                     display: grid;
                     align-content: center;

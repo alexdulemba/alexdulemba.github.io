@@ -14,6 +14,7 @@
     --secondary-text: oklch(0.783 0 89.876);
 	--tertiary-text: oklch(65.335% 0.00007 271.152);
     --border-radius: 16px;
+	--button-padding: 12px 16px;
     --padding: 16px;
     --net-color-light: oklch(0.615 0.191 315.442);
     --net-color-dark: oklch(0.499 0.2 336.983);
@@ -21,12 +22,18 @@
     --python-color: oklch(0.575 0.15 267.537);
     --css-color: hsl(61, 55%, 51%);
 
+	--very-small-text: clamp(10, 1.8vh, 18px);
+	--very-small-text: clamp(10, 1.8dvh, 18px);
 	--small-text: clamp(14px, 2.4vh, 24px);
 	--small-text: clamp(14px, 2.4dvh, 24px);
 	--medium-text: clamp(20px, 3.2vh, 32px);
 	--medium-text: clamp(20px, 3.2dvh, 32px);
 	--large-text: clamp(28px, 4vh, 44px);
 	--large-text: clamp(28px, 4dvh, 44px);
+	--very-large-text: clamp(40px, 7.2vh, 64px);
+	--very-large-text: clamp(40px, 7.2dvh, 64px);
+	--ultra-large-text: clamp(60px, 12vh, 100px);
+	--ultra-large-text: clamp(60px, 12dvh, 100px);
 
     .net {
         color: var(--net-color-light);
@@ -55,9 +62,9 @@ body {
     --grid-box-size: max(2dvw, 8px);
     transition: 0.1s ease all;
     background: radial-gradient(
-            circle at var(--diameter) var(--diameter), 
-            hsl(0, 0%, 12%) calc(var(--diameter) - 1px),
-            var(--bg-dark) var(--diameter)) 
+		circle at var(--diameter) var(--diameter), 
+		hsl(0, 0%, 12%) calc(var(--diameter) - 1px),
+		var(--bg-dark) var(--diameter)) 
         0 0 / var(--grid-box-size) var(--grid-box-size);
 
     #app {
@@ -68,24 +75,6 @@ body {
         align-items: center;
         justify-content: center;
     }
-}
-
-h1 {
-    font-size: 100px;
-    font-weight: bold;
-    color: var(--primary-text);
-}
-
-h2 {
-    font-size: 64px;
-    font-weight: bold;
-    color: var(--primary-text);
-}
-
-h3 {
-    font-size: 32px;
-    font-weight: bold;
-    color: var(--secondary-text);
 }
 
 p {
@@ -107,7 +96,7 @@ a {
     color: var(--primary-text);
 
     &.button-like {
-        padding: 8px 12px;
+        padding: var(--button-padding);
     }
 }
 
@@ -119,7 +108,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 12px;
+    padding: var(--button-padding);
     gap: 8px;
     cursor: pointer;
 }
